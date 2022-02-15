@@ -1,0 +1,39 @@
+/*-------- FAQ --------*/
+
+.faq {
+    padding-bottom: 120px;
+
+    &__title {
+        text-align: center;
+    }
+
+    &__accordion {
+        max-width: 760px;
+
+        margin-top: 72px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 619px) {
+
+    .faq {
+        padding-bottom: 80px;
+
+        &__accordion {
+            margin-top: 40px;
+        }
+    }
+}
+
+@media (max-width: 479px) {
+
+    .faq {
+        padding-bottom: 60px;
+
+        &__accordion {
+            margin-top: 30px;
+        }
+    }
+}

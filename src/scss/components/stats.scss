@@ -1,0 +1,17 @@
+/*-------- Stats --------*/
+
+.stats {
+    margin-top: 57px;
+
+    background-image: url(../../images/stats/bg.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+
+@media (max-width: 619px) {
+
+    .stats {
+        background-size: cover;
+    }
+}

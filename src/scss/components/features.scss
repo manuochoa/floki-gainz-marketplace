@@ -1,0 +1,138 @@
+/*-------- Features --------*/
+
+.features {
+    padding: 100px 0;
+
+    &__item {
+        cursor: pointer;
+        transition: background-color 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+
+    &__item-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+        position: relative;
+    }
+
+    &__item:not(:first-child) &__item-wrapper {
+        border-top: 2px solid $black;
+    }
+
+    &__item-column {
+        width: 48%;
+    }
+
+    &__item-image {
+        width: 25%;
+
+        position: absolute;
+        right: 0;
+        z-index: 1;
+        transform: scale(0.6);
+
+        opacity: 0;
+        visibility: hidden;
+
+        transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+
+    &__item-text {
+        margin-top: 44px;
+        font-size: 20px;
+        line-height: 1.4;
+
+        transition: color 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+
+    &__item-title {
+        transition: color 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+
+    &__item:hover &__item-image {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+
+    &__item:hover {
+        background-color: $red;
+    }
+
+    &__item:hover &__item-title, &__item:hover &__item-text {
+        color: $beige;
+    }
+}
+
+@media (max-width: 1099px) {
+
+    .features {
+
+        &__item-column {
+            width: 65%;
+        }
+    }
+}
+
+@media (max-width: 989px) {
+
+    .features {
+        padding: 80px 0;
+
+        &__item-wrapper {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        &__item-title {
+            font-size: 35px;
+        }
+
+        &__item-text {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+    }
+}
+
+@media (max-width: 619px) {
+
+    .features {
+        padding: 20px 0;
+
+        &__item-wrapper {
+            flex-direction: column-reverse;
+        }
+
+        &__item-image {
+            width: 60%;
+            position: static;
+            opacity: 1;
+            visibility: visible;
+            transform: unset;
+        }
+
+        &__item-column {
+            width: 100%;
+            margin-top: 20px;
+        }
+    }
+}
+
+@media (max-width: 479px)  {
+
+    .features {
+
+        &__item {
+            text-align: center;
+        }
+
+        &__item-title {
+            font-size: 28px;
+        }
+    }
+}

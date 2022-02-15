@@ -1,0 +1,63 @@
+/*-------- Marketplace --------*/
+
+.marketplace {
+    
+    &__wrapper {
+        margin-top: 64px;
+    }
+
+    &__columns {
+        display: flex;
+    }
+
+    &__columns--header {
+        margin-top: 56px;
+    }
+
+    &__column--1 {
+        width: 22%;
+    }
+
+    &__column--2 {
+        width: 78%;
+        padding-left: 40px;
+    }
+
+    &__columns--header &__column--2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__header {
+        margin-bottom: 48px;
+    }
+
+    &__header-buttons {
+        display: flex;
+    }
+
+    &__header-button {
+        padding: 8px 21px;
+
+        font-family: $font-sb;
+        font-size: 20px;
+        color: $black;
+
+        border-radius: 100px;
+    }
+
+    &__header-button:not(.active):hover {
+        text-decoration: underline;
+    }
+
+    &__header-button.active {
+        background-color: $red;
+        color: $beige;
+    }
+
+    &__header-title {
+        font-family: $font-rounded;
+        font-size: 24px;
+    }
+}

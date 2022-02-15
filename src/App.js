@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import { Route, Routes } from 'react-router';
+import Marketplace from './components/pages/marketplace/Marketplace';
+import Token from './components/pages/Token';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+
+    return (
+        <>
+            <Header />
+            <main className="main">
+                <Routes>
+                    <Route path="/marketplace" element={<Marketplace />} />
+                    <Route path="/marketplace/:id" element={<Token />} />
+                </Routes>
+            </main>
+        </>
+    );
 }
-
-export default App;
