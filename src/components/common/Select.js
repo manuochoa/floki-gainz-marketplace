@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Arrow from '../../Icons/Arrow';
 import { checkForScrollbar } from "../../services/scrollbarService";
 
 export default function Select({ className, list, setList, callback, Icon, CustomArrow, name }) {
     const [opened, setOpened] = useState(false);
     let selectedTitle = list.find(item => item.selected === true).title;
+    const [scrollvisible, setScrollvisible] = useState(false);
+    const scrollwrapper = useRef(null);
 
     function selectItem(index) {
         setList({ name, index });
@@ -22,6 +24,8 @@ export default function Select({ className, list, setList, callback, Icon, Custo
             }
         };
 
+        setScrollvisible(checkForScrollbar(scrollwrapper.current));
+
         document.addEventListener('click', handleDocumentClick);
 
         return () => {
@@ -30,14 +34,14 @@ export default function Select({ className, list, setList, callback, Icon, Custo
     }, [opened]);
 
     return (
-        <div className={"select " + (className || "") + (opened ? " opened" : "") + (checkForScrollbar() ? " scroll-visible" : "")}>
+        <div className={"select " + (className || "") + (opened ? " opened" : "") + (scrollvisible ? " scroll-visible" : "")}>
             <button className="select__button" onClick={toggleSelect}>
                 {Icon && <Icon className="select__button-icon" />}
                 <span className="select__button-text">{selectedTitle}</span>
                 {CustomArrow ? <CustomArrow className="select__button-arrow" /> : <Arrow className="select__button-arrow" />}
             </button>
             <div className="select__list-wrapper">
-                <ul className="select__list scrollwrapper select__scrollwrapper">
+                <ul className="select__list scrollwrapper select__scrollwrapper" ref={scrollwrapper}>
                     {list.map((item, index) => {
                         return (
                             <li className="select__item" key={item.id}>
