@@ -7,6 +7,7 @@ import Sidebar from './Sidebar';
 import TokenCard from './TokenCard';
 import { tokens } from './../../../services/constants';
 import Filters from './../../../Icons/Filters';
+import { useEffect } from 'react';
 
 const sortArray = [
     { title: "Newest", selected: true, id: 0 },
@@ -72,6 +73,14 @@ export default function Marketplace() {
     function selectSortType(index) {
         setSort(state => ({ ...state, type: state.type.map((item, itemIndex) => index === itemIndex ? true : false) }))
     }
+
+    useEffect(() => {
+        if (filtersVisible) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = null;
+        }
+    }, [filtersVisible]);
 
     return (
         <div className="marketplace">
