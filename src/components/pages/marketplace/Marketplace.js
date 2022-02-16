@@ -6,6 +6,7 @@ import Sidebar from './Sidebar';
 
 import TokenCard from './TokenCard';
 import { tokens } from './../../../services/constants';
+import Filters from './../../../Icons/Filters';
 
 const sortArray = [
     { title: "Newest", selected: true, id: 0 },
@@ -58,6 +59,7 @@ export default function Marketplace() {
         type: [true, false, false]
     });
     const [filters, setFilters] = useState(filtersInitialState);
+    const [filtersVisible, setFiltersVisible] = useState(false);
 
     function resetFilters() {
         setFilters(filtersInitialState);
@@ -79,7 +81,14 @@ export default function Marketplace() {
                     <Input className="input-wrapper--search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Type your keywords" button={true} />
                     <div className="marketplace__columns marketplace__columns--header">
                         <div className="marketplace__column marketplace__column--1">
-                            <Select list={sort.date} setList={({ index }) => setSort(state => ({ ...state, date: state.date.map((item, itemIndex) => ({ ...item, selected: itemIndex === index ? true : false })) }))} />
+                            <Select
+                                list={sort.date}
+                                setList={({ index }) => setSort(state => ({ ...state, date: state.date.map((item, itemIndex) => ({ ...item, selected: itemIndex === index ? true : false })) }))}
+                                className="select--sort"
+                            />
+                            <button className="marketplace__filters" onClick={() => setFiltersVisible(true)}>
+                                <Filters className="marketplace__filters-icon" />
+                            </button>
                         </div>
                         <div className="marketplace__column marketplace__column--2">
                             <h6 className="marketplace__header-title">128 Results</h6>
@@ -92,9 +101,7 @@ export default function Marketplace() {
                     </div>
                 </div>
                 <div className="marketplace__columns">
-                    <div className="marketplace__column marketplace__column--1">
-                        <Sidebar filters={filters} setFilters={setFilters} resetFilters={resetFilters} setList={setList} />
-                    </div>
+                    <Sidebar filtersVisible={filtersVisible} filters={filters} setFilters={setFilters} resetFilters={resetFilters} setList={setList} setFiltersVisible={setFiltersVisible} />
                     <ul className="marketplace__column marketplace__column--2 cards-list cards-list--marketplace">
                         {tokens.map(item => {
                             return (

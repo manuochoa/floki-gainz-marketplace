@@ -36,37 +36,12 @@
     }
 }
 
-@media (max-width: 1099px) {
+@media (max-width: 1219px) {
 
     .social {
 
         &__item:not(:first-child) {
             margin-left: 20px;
-        }
-    }
-}
-
-@media (max-width: 619px) {
-
-    .social {
-
-        &__icon {
-            width: 18px;
-            height: 18px;
-        }
-
-        &__item:not(:first-child) {
-            margin-left: 15px;
-        }
-    }
-}
-
-@media (max-width: 479px) {
-
-    .social {
-
-        &--header {
-            display: none;
         }
     }
 }

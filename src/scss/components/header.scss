@@ -96,51 +96,38 @@
         bottom: unset;
         left: unset;
     }
+
+    &__columns {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
 }
 
-@media (max-width: 1099px) {
+@media (max-width: 1219px) {
 
     .header {
+
+        &__columns {
+            width: 100%;
+        }
         
         &__logo {
-            width: 14%;
+            flex-shrink: 0;
+            width: 150px;
         }
 
         &__wrapper {
             height: 70px;
         }
+
+        &__column {
+            margin-left: auto;
+        }
     }
 }
 
 @media (max-width: 989px) {
-
-    .header {
-
-        &__logo {
-            width: 155px;
-        }
-    }
-}
-
-@media (max-width: 619px) {
-
-    .header {
-
-        &__wrapper {
-            height: 60px;
-        }
-
-        &__logo {
-            width: 120px;
-        }
-
-        &__button {
-            margin-left: 20px;
-        }
-    }
-}
-
-@media (max-width: 479px) {
 
     .header {
         position: relative;
@@ -149,15 +136,55 @@
             display: flex;
         }
 
-        &__button {
+        &__columns {
+            display: flex;
+            flex-direction: column;
+
+            width: 100%;
+            height: max-content;
+            padding: 20px;
+
+            background-color: $beige;
+
+            position: absolute;
+            top: 100%;
+            left: 0;
+
+            visibility: hidden;
+            opacity: 0;
+            z-index: 19;
+
+            box-shadow: 0 20px 22px 11px rgba(0, 0, 0, 0.3);
+
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        &__columns.opened {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        &__column {
+            justify-content: space-between;
+
+            width: 100%;
+            margin-top: 15px;
             margin-left: 0;
         }
     }
 }
 
-@media (max-width: 359px) {
+@media (max-width: 479px) {
 
     .header {
+
+        &__wrapper {
+            height: 65px;
+        }
+
+        &__columns {
+            padding: 12px;
+        }
 
         &__logo {
             width: 100px;

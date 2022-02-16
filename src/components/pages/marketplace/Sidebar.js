@@ -1,10 +1,15 @@
 import Slider from 'react-input-slider';
 import Cross from '../../../Icons/Cross';
 import Select from '../../common/Select';
+import check from "../../../images/svg/check.svg";
 
-export default function Sidebar({ filters, setFilters, resetFilters, setList }) {
+export default function Sidebar({ filters, setFilters, resetFilters, setList, filtersVisible, setFiltersVisible }) {
     return (
-        <div className="sidebar">
+        <div className={"marketplace__column marketplace__column--1 sidebar" + (filtersVisible ? " opened" : "")}>
+            <div className="sidebar__row sidebar__row--top">
+                <div className="sidebar__title sidebar__title--main">Filters</div>
+                <button className="sidbar__close close" onClick={() => setFiltersVisible(false)}></button>
+            </div>
             <h3 className="sidebar__title">Price range</h3>
             <div className="sidebar__slider">
                 <Slider
@@ -67,10 +72,16 @@ export default function Sidebar({ filters, setFilters, resetFilters, setList }) 
                     <Select list={filters.mouth} setList={setList} name="mouth" />
                 </li>
             </ul>
-            <button className="sidebar__reset" onClick={resetFilters}>
-                <Cross className="sidebar__reset-icon" />
-                <span>Reset filter</span>
-            </button>
+            <div className="sidebar__row">
+                <button className="sidebar__action" onClick={resetFilters}>
+                    <Cross className="sidebar__action-icon" />
+                    <span>Reset filter</span>
+                </button>
+                <button className="sidebar__action sidebar__action--apply">
+                    <span>Apply</span>
+                    <img src={check} alt="apply" className="sidebar__action-icon" />
+                </button>
+            </div>
         </div>
     )
 }

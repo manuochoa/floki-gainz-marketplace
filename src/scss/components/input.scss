@@ -47,11 +47,63 @@
     &--search &__input {
         padding-left: 0;
         font-family: $font-rounded;
+        font-weight: 600;
         font-size: 24px;
         color: $black;
     }
 
     &--search &__input::placeholder {
         color: $black;
+    }
+}
+
+.input-wrapper {
+
+    &--bridge {
+        height: 64px;
+    }
+
+    &--bridge &__input {
+        background-color: #fff;
+
+        background: #FFFFFF;
+        border: 2px solid $black;
+        border-radius: 16px;
+
+        font-family: $font-sb;
+        font-size: 20px;
+        color: $black;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .input-wrapper {
+
+        &--search {
+            height: 48px;
+        }
+        
+        &--search &__input {
+            font-size: 18px;
+        }
+
+        &--search &__button {
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    .input-wrapper {
+
+        &--bridge {
+            height: 52px;
+        }
+
+        &--bridge &__input {
+            padding: 0 12px;
+            font-size: 16px;
+            border-radius: 12px;
+        }
     }
 }

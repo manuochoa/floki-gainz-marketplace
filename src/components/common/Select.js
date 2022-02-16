@@ -4,7 +4,7 @@ import { checkForScrollbar } from "../../services/scrollbarService";
 
 export default function Select({ className, list, setList, callback, Icon, CustomArrow, name }) {
     const [opened, setOpened] = useState(false);
-    let selectedTitle = list.find(item => item.selected === true).title;
+    let selected = list.find(item => item.selected === true);
     const [scrollvisible, setScrollvisible] = useState(false);
     const scrollwrapper = useRef(null);
 
@@ -37,7 +37,8 @@ export default function Select({ className, list, setList, callback, Icon, Custo
         <div className={"select " + (className || "") + (opened ? " opened" : "") + (scrollvisible ? " scroll-visible" : "")}>
             <button className="select__button" onClick={toggleSelect}>
                 {Icon && <Icon className="select__button-icon" />}
-                <span className="select__button-text">{selectedTitle}</span>
+                {selected.icon && <img src={selected.icon} className="select__button-icon" alt={selected.title} />}
+                <span className="select__button-text">{selected.title}</span>
                 {CustomArrow ? <CustomArrow className="select__button-arrow" /> : <Arrow className="select__button-arrow" />}
             </button>
             <div className="select__list-wrapper">
@@ -50,7 +51,10 @@ export default function Select({ className, list, setList, callback, Icon, Custo
                                     onClick={() => {
                                         selectItem(index);
                                     }}
-                                >{item.title}</button>
+                                >
+                                    {item.icon && <img src={item.icon} className="select__item-icon" alt={item.title} />}
+                                    <span>{item.title}</span>
+                                </button>
                             </li>
                         );
                     })}

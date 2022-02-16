@@ -58,3 +58,27 @@
         font-size: inherit;
     }
 }
+
+@media (max-width: 479px) {
+
+    .quantity {
+        font-size: 16px;
+
+        &__button {
+            width: 18px;
+            height: 18px;
+        }
+
+        &__button--1:before {
+            width: 10px;
+        }
+
+        &__button--2:before, &__button--2:after {
+            height: 10px;
+        }
+
+        &__value {
+            width: 30px;
+        }
+    }
+}

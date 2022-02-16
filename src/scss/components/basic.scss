@@ -79,6 +79,8 @@ input[type="number"] {
 .section {
 
     &--orange {
+        padding-top: 48px;
+        padding-bottom: 99px;
         background-color: $orange;
     }
 }
@@ -112,6 +114,37 @@ input[type="number"] {
     border-radius: 6px;
 }
 
+.close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    position: relative;
+
+    color: $black;
+
+    transition: color 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    &:before, &:after {
+        content: "";
+        width: 60%;
+        height: 1px;
+        background-color: currentColor;
+        position: absolute;
+    }
+
+    &:before {
+        transform: rotateZ(45deg);
+    }
+
+    &:after {
+        transform: rotateZ(-45deg);
+    }
+}
+
 @media (hover: none) and (pointer: coarse) {
 
     .scrollwrapper {
@@ -127,6 +160,14 @@ input[type="number"] {
 
     body {
         font-size: 16px;
+    }
+
+    .section {
+
+        &--orange {
+            padding-top: 30px;
+            padding-bottom: 60px;
+        }
     }
 }
 
