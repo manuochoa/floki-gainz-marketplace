@@ -222,7 +222,7 @@ export default function Token({
             )}
             {tabs[1] && (
               <ul className="token__tabs-list">
-                {item?.metadata.attributes.map((el, index) => {
+                {item?.metadata?.attributes?.map((el, index) => {
                   return (
                     <li key={index} className="token__tabs-item?">
                       <h6 className="token__tabs-name">{el.trait_type}</h6>
