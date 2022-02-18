@@ -57,7 +57,7 @@ export default function Sidebar({
           onClick={() => setFiltersVisible(false)}
         ></button>
       </div>
-      <h3 className="sidebar__title">Price range</h3>
+      {/* <h3 className="sidebar__title">Price range</h3>
       <div className="sidebar__slider">
         <Slider
           axis="x"
@@ -88,19 +88,19 @@ export default function Sidebar({
           <span>{filters.price} BNB</span>
           <span>10 BNB</span>
         </div>
-      </div>
+      </div> */}
       <ul className="sidebar__list">
         <li className="sidebar__item">
           <h3 className="sidebar__title sidebar__title--mb">Background</h3>
           <Select
-            list={filters.background}
+            list={filters.Background}
             setList={setList}
-            name="background"
+            name="Background"
           />
         </li>
         <li className="sidebar__item">
           <h3 className="sidebar__title sidebar__title--mb">Floki</h3>
-          <Select list={filters.floki} setList={setList} name="floki" />
+          <Select list={filters.Floki} setList={setList} name="Floki" />
         </li>
         {/* <li className="sidebar__item">
                     <h3 className="sidebar__title sidebar__title--mb">Rarity</h3>
@@ -108,19 +108,19 @@ export default function Sidebar({
                 </li> */}
         <li className="sidebar__item">
           <h3 className="sidebar__title sidebar__title--mb">Head</h3>
-          <Select list={filters.head} setList={setList} name="head" />
+          <Select list={filters.Head} setList={setList} name="Head" />
         </li>
         <li className="sidebar__item">
           <h3 className="sidebar__title sidebar__title--mb">Eyes</h3>
-          <Select list={filters.eyes} setList={setList} name="eyes" />
+          <Select list={filters.Eyes} setList={setList} name="Eyes" />
         </li>
         <li className="sidebar__item">
           <h3 className="sidebar__title sidebar__title--mb">Wristband</h3>
-          <Select list={filters.wristband} setList={setList} name="wristband" />
+          <Select list={filters.Wristband} setList={setList} name="Wristband" />
         </li>
         <li className="sidebar__item">
           <h3 className="sidebar__title sidebar__title--mb">Mouth</h3>
-          <Select list={filters.mouth} setList={setList} name="mouth" />
+          <Select list={filters.Mouth} setList={setList} name="Mouth" />
         </li>
       </ul>
       <div className="sidebar__row">

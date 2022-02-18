@@ -50,11 +50,12 @@ export default function Token({
         item.itemInfo.price,
         walletType
       );
-
+      getItems();
       getUserDetails();
       navigate("/collection");
     } else {
       receipt = await createOrder(item.token_id, price, walletType);
+      getUserDetails();
       getItems();
       navigate("/marketplace");
     }
@@ -226,6 +227,9 @@ export default function Token({
                     <li key={index} className="token__tabs-item?">
                       <h6 className="token__tabs-name">{el.trait_type}</h6>
                       <p className="token__tabs-value">{el.value}</p>
+                      <p className="token__tabs-name">
+                        {el.rarity}% has this trait
+                      </p>
                     </li>
                   );
                 })}

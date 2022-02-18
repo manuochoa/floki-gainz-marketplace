@@ -18,15 +18,16 @@ export default function App() {
   const [userAddress, setUserAddress] = useState("");
   const [walletType, setWalletType] = useState("");
   const [marketNFTs, setMarketNFTs] = useState([]);
+  const [filteredNFTs, setFilteredNFTs] = useState([]);
   const [userNFTs, setUserNFTs] = useState([]);
   const [userOrders, setUserOrders] = useState([]);
   const [stats, setStats] = useState([
     {
-      title: "floorPrice",
+      title: "FLOORPRICE",
       value: 0,
     },
-    { title: "volume", value: 0 },
-    { title: "minted", value: 0 },
+    { title: "VOLUME", value: 0 },
+    { title: "MINTED", value: 0 },
   ]);
   const [ERC721Approved, setERC721Approved] = useState(false);
 
@@ -103,6 +104,7 @@ export default function App() {
       await provider.disconnect();
     } else {
       window.localStorage.removeItem("userAddress");
+      store.remove("userNFTs");
     }
 
     setUserAddress("");
@@ -116,14 +118,14 @@ export default function App() {
       setMarketNFTs(result.tokens);
       setStats([
         {
-          title: "floorPrice",
+          title: "FLOORPRICE",
           value: `${Number(result.floorPrice / 10 ** 18).toFixed(2)} BNB`,
         },
         {
-          title: "volume",
+          title: "VOLUME",
           value: `${Number(result.volume / 10 ** 18).toFixed(2)} BNB`,
         },
-        { title: "minted", value: Number(result.minted) },
+        { title: "MINTED", value: Number(result.minted) },
       ]);
     }
   };
@@ -162,13 +164,14 @@ export default function App() {
     const checkConnection = () => {
       let user = window.localStorage.getItem("userAddress");
       let marketStore = store.get("marketNFTs");
-      let userStore = store.get("userNFTs");
-      if (marketStore || userStore) {
+      if (marketStore) {
         setMarketNFTs(marketStore);
-        setUserNFTs(userStore);
       }
-      console.log("stored", userStore, marketStore);
       if (user) {
+        let userStore = store.get("userNFTs");
+        if (userStore) {
+          setUserNFTs(userStore);
+        }
         connectWallet();
       }
     };

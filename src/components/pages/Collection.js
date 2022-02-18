@@ -13,15 +13,19 @@ export default function Collections({ userNFTs, userOrders }) {
           <h1 className="token__title">My Items</h1>
         </div>
         <div className="marketplace__columns">
-          <ul className="marketplace__column marketplace__column--2 cards-list cards-list--marketplace">
-            {userNFTs.map((item, index) => {
-              return (
-                <li className="cards-list__item" key={index}>
-                  <TokenCard item={item} />
-                </li>
-              );
-            })}
-          </ul>
+          {userNFTs.length > 0 ? (
+            <ul className="marketplace__column marketplace__column--2 cards-list cards-list--marketplace">
+              {userNFTs.map((item, index) => {
+                return (
+                  <li className="cards-list__item" key={index}>
+                    <TokenCard item={item} />
+                  </li>
+                );
+              })}
+            </ul>
+          ) : (
+            <h2>No Items</h2>
+          )}
         </div>
       </div>
     </div>
