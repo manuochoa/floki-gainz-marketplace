@@ -105,28 +105,30 @@ export default function Marketplace({
     if (marketNFTs.length > 0) {
       marketNFTs?.map((el) => {
         let isIncluded = false;
-        if (
-          values[el?.metadata?.attributes[0]?.trait_type].includes(
-            el?.metadata?.attributes[0]?.value
-          ) &&
-          values[el?.metadata?.attributes[1]?.trait_type].includes(
-            el?.metadata?.attributes[1]?.value
-          ) &&
-          values[el?.metadata?.attributes[2]?.trait_type].includes(
-            el?.metadata?.attributes[2]?.value
-          ) &&
-          values[el?.metadata?.attributes[3]?.trait_type].includes(
-            el?.metadata?.attributes[3]?.value
-          ) &&
-          values[el?.metadata?.attributes[4]?.trait_type].includes(
-            el?.metadata?.attributes[4]?.value
-          ) &&
-          values[el?.metadata?.attributes[5]?.trait_type].includes(
-            el?.metadata?.attributes[5]?.value
-          )
-          // values.includes(el.metadata.attributes[6].value)
-        ) {
-          isIncluded = true;
+        if (el.metadata) {
+          if (
+            values[el?.metadata?.attributes[0]?.trait_type].includes(
+              el?.metadata?.attributes[0]?.value
+            ) &&
+            values[el?.metadata?.attributes[1]?.trait_type].includes(
+              el?.metadata?.attributes[1]?.value
+            ) &&
+            values[el?.metadata?.attributes[2]?.trait_type].includes(
+              el?.metadata?.attributes[2]?.value
+            ) &&
+            values[el?.metadata?.attributes[3]?.trait_type].includes(
+              el?.metadata?.attributes[3]?.value
+            ) &&
+            values[el?.metadata?.attributes[4]?.trait_type].includes(
+              el?.metadata?.attributes[4]?.value
+            ) &&
+            values[el?.metadata?.attributes[5]?.trait_type].includes(
+              el?.metadata?.attributes[5]?.value
+            )
+            // values.includes(el.metadata.attributes[6].value)
+          ) {
+            isIncluded = true;
+          }
         }
 
         if (isIncluded) {
