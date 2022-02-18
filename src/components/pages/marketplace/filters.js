@@ -44,11 +44,7 @@ export const filtersInitialState = {
     { title: "Red Orange", selected: false, id: 22 },
     { title: "Red White", selected: false, id: 23 },
   ],
-  //   rarity: [
-  //     { title: "All", selected: true, id: 0 },
-  //     { title: "Variant 1", selected: false, id: 1 },
-  //     { title: "Variant 2", selected: false, id: 2 },
-  //   ],
+
   Head: [
     { title: "All", selected: true, id: 0 },
     { title: "Party Hat", selected: false, id: 1 },

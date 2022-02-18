@@ -8,8 +8,11 @@ export default function Sidebar({
   setFilters,
   resetFilters,
   setList,
+  setRarityList,
   filtersVisible,
   setFiltersVisible,
+  rarity,
+  setRarity,
 }) {
   //   useEffect(() => {
   //     if (items) {
@@ -102,10 +105,10 @@ export default function Sidebar({
           <h3 className="sidebar__title sidebar__title--mb">Floki</h3>
           <Select list={filters.Floki} setList={setList} name="Floki" />
         </li>
-        {/* <li className="sidebar__item">
-                    <h3 className="sidebar__title sidebar__title--mb">Rarity</h3>
-                    <Select list={filters.rarity} setList={setList} name="rarity" />
-                </li> */}
+        <li className="sidebar__item">
+          <h3 className="sidebar__title sidebar__title--mb">Rarity</h3>
+          <Select list={rarity} setList={setRarityList} name="rarity" />
+        </li>
         <li className="sidebar__item">
           <h3 className="sidebar__title sidebar__title--mb">Head</h3>
           <Select list={filters.Head} setList={setList} name="Head" />

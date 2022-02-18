@@ -15,6 +15,16 @@ const sortArray = [
   { title: "High to Low", selected: false, id: 2 },
   { title: "Low to High", selected: false, id: 3 },
 ];
+
+const rarityFilter = [
+  { value: 600, title: "All", selected: true, id: 0 },
+  { value: 500, title: "Common", selected: false, id: 1 },
+  { value: 360, title: "Uncommon", selected: false, id: 2 },
+  { value: 300, title: "Rare", selected: false, id: 3 },
+  { value: 230, title: "Epic", selected: false, id: 4 },
+  { value: 180, title: "Legendary", selected: false, id: 5 },
+];
+
 export default function Marketplace({
   getItems,
   userAddress,
@@ -28,6 +38,7 @@ export default function Marketplace({
   });
   const [filteredNFTs, setFilteredNFTs] = useState(marketNFTs);
   const [filters, setFilters] = useState(filtersInitialState);
+  const [rarity, setRarity] = useState(rarityFilter);
   const [filtersVisible, setFiltersVisible] = useState(false);
 
   function resetFilters() {
@@ -42,6 +53,47 @@ export default function Marketplace({
         selected: itemIndex === index ? true : false,
       })),
     }));
+  }
+
+  const getRarity = (num) => {
+    let rarity;
+    if (Number(num) <= 180) {
+      rarity = "legend";
+    } else if (Number(num) <= 230) {
+      rarity = "epic";
+    } else if (Number(num) <= 300) {
+      rarity = "rare";
+    } else if (Number(num) <= 360) {
+      rarity = "uncommon";
+    } else {
+      rarity = "common";
+    }
+    return rarity;
+  };
+
+  function setRarityList({ name, index }) {
+    let selectedRarity;
+    rarityFilter.map((el, i) => {
+      if (i === index) {
+        el.selected = true;
+        selectedRarity = el.value;
+      } else {
+        el.selected = false;
+      }
+    });
+    let temp = [];
+
+    marketNFTs.map((el) => {
+      if (selectedRarity === 600) {
+        temp.push(el);
+      } else if (
+        getRarity(selectedRarity) === getRarity(el.metadata?.rarityIndex)
+      ) {
+        temp.push(el);
+      }
+    });
+
+    setFilteredNFTs(temp);
   }
 
   function selectSortType(index) {
@@ -64,8 +116,6 @@ export default function Marketplace({
     } else if (Number(type) === 3) {
       temp.sort((a, b) => a.itemInfo.price - b.itemInfo.price);
     }
-
-    console.log(temp);
     setFilteredNFTs(temp);
   }
 
@@ -222,7 +272,10 @@ export default function Marketplace({
             setFilters={setFilters}
             resetFilters={resetFilters}
             setList={setList}
+            setRarityList={setRarityList}
             setFiltersVisible={setFiltersVisible}
+            rarity={rarity}
+            setRarity={setRarity}
           />
           <ul className="marketplace__column marketplace__column--2 cards-list cards-list--marketplace">
             {filteredNFTs.map((item, index) => {

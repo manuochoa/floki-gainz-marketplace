@@ -113,7 +113,6 @@ export default function App() {
   const getItems = async () => {
     let result = await getMarketNFTs();
     if (result) {
-      console.log("market", result.tokens, result.floorPrice);
       store.set("marketNFTs", result.tokens);
       setMarketNFTs(result.tokens);
       setStats([

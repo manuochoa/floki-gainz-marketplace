@@ -90,11 +90,9 @@ export default function Token({
         }
       }
       if (items) {
-        console.log(items);
         setItem(items.find((item) => item.token_id === id));
       }
     }
-    console.log();
   }, []);
 
   useEffect(() => {
