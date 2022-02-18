@@ -22,7 +22,7 @@ export default function TokenCard({ item }) {
       className="card card--token"
     >
       <div className="card__image-wrapper">
-        {/* <Badge item={item} className="card__badge" /> */}
+        <Badge item={item} className="card__badge" />
         <img
           src={item.metadata.image}
           alt={item.metadata.name}

@@ -120,7 +120,7 @@ export default function Token({
             </div>
           )}
 
-          {/* <Badge className="token__badge" item={item} /> */}
+          <Badge className="token__badge" item={item} />
           {/* <a href="/" className="token__link">
             <img src={cake} alt="cake token" className="token__link-icon" />
             <span>On Pancake Swap</span>

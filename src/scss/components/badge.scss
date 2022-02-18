@@ -1,22 +1,30 @@
 /*-------- Badge --------*/
 
 .badge {
-    padding: 8px 16px;
-    
-    font-family: $font-sb;
-    font-size: 18px;
-    color: #fff;
-    border-radius: 6px;
+  padding: 8px 16px;
 
-    &--common {
-        background-color: $black;
-    }
+  font-family: $font-sb;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 6px;
 
-    &--uncommon {
-        background-color: $green;
-    }
+  &--common {
+    background-color: $black;
+  }
 
-    &--rare {
-        background-color: $blue;
-    }
+  &--uncommon {
+    background-color: $green;
+  }
+
+  &--rare {
+    background-color: $blue;
+  }
+
+  &--epic {
+    background-color: $orange;
+  }
+
+  &--legend {
+    background-color: $red;
+  }
 }
