@@ -6,8 +6,8 @@ import axios from "axios";
 let provider = new ethers.providers.JsonRpcProvider(
   "https://speedy-nodes-nyc.moralis.io/1d19a6082204e3ecd8dcf0b9/bsc/testnet"
 );
-let marketAddress = "0xd616532f75a184b017CFCda67A3D1006b7F18367";
-let NFTAddress = "0x5D702b0ad17fDA0a88FA55089CA685DfDCB402E2";
+let marketAddress = "0x85D1e8E84d86176c8cc96863eD1a7259f81a9674";
+let NFTAddress = "0xB85BA6FA7deC1CE04b26AD6963F82a8633e0F179";
 let marketContract = new ethers.Contract(marketAddress, marketAbi, provider);
 let NFTcontract = new ethers.Contract(NFTAddress, NFTabi, provider);
 

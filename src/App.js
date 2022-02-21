@@ -195,9 +195,9 @@ export default function App() {
       />
       <main className="main">
         <Routes>
-          <Route path="/" element={<Bridge />} />
+          {/* <Route path="/" element={<Bridge />} /> */}
           <Route
-            path="/marketplace"
+            path="/"
             element={
               <Marketplace
                 userAddress={userAddress}
