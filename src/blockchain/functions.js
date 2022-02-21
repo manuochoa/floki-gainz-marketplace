@@ -1,6 +1,7 @@
 import { ethers } from "ethers";
 import { NFTabi, marketAbi } from "./abis";
 import WalletConnectProvider from "@walletconnect/web3-provider";
+import Metadata from "./newMeta.json";
 import axios from "axios";
 
 let provider = new ethers.providers.JsonRpcProvider(
@@ -32,7 +33,7 @@ export const getMarketNFTs = async () => {
       let metadata;
       let itemInfo = await marketContract.orderByTokenId(el);
       let bids = await marketContract.bidByTokenId(el);
-      let token_uri = await NFTcontract.tokenURI(el);
+      // let token_uri = await NFTcontract.tokenURI(el);
       //   itemInfo.price = Number(itemInfo[3]);
       //   itemInfo.createdAt = Number(itemInfo[2]);
 
@@ -43,9 +44,10 @@ export const getMarketNFTs = async () => {
       }
 
       try {
-        let info = await axios.get(token_uri);
+        // let info = await axios.get(token_uri);
 
-        metadata = info.data;
+        metadata = Metadata[Number(el) - 1];
+        // metadata = info.data;
       } catch (error) {
         console.log(error, "axios getMarketNFTs");
       }
@@ -76,8 +78,9 @@ export const getUserNFTs = async (userAddress) => {
       let token_uri = await NFTcontract.tokenURI(el);
 
       try {
-        let info = await axios.get(token_uri);
-        metadata = info.data;
+        // let info = await axios.get(token_uri);
+        // metadata = info.data;
+        metadata = Metadata[Number(el) - 1];
       } catch (error) {
         console.log(error, "axios getUserNFTs");
       }
