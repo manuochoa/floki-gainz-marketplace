@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import { Route, Routes } from "react-router";
+
 import Marketplace from "./components/pages/marketplace/Marketplace";
 import Token from "./components/pages/Token";
 import Bridge from "./components/pages/Bridge";
@@ -30,6 +31,7 @@ export default function App() {
     { title: "MINTED", value: 0 },
   ]);
   const [ERC721Approved, setERC721Approved] = useState(false);
+  const [selectedChain, setSelectedChain] = useState();
 
   const connectWallet = async () => {
     console.log("hola");
@@ -37,20 +39,25 @@ export default function App() {
       const accounts = await window.ethereum.request({
         method: "eth_requestAccounts",
       });
-      setUserAddress(accounts[0]);
-
-      window.localStorage.setItem("userAddress", accounts[0]);
 
       const chainId = await window.ethereum.request({
         method: "eth_chainId",
       });
 
-      if (chainId !== "0x61") {
-        await window.ethereum.request({
-          method: "wallet_switchEthereumChain",
-          params: [{ chainId: "0x61" }],
-        });
-      }
+      let id = parseInt(chainId, 16);
+
+      console.log(chainId, "id");
+      setSelectedChain(id);
+      setUserAddress(accounts[0]);
+
+      window.localStorage.setItem("userAddress", accounts[0]);
+
+      // if (chainId !== "0x61") {
+      //   await window.ethereum.request({
+      //     method: "wallet_switchEthereumChain",
+      //     params: [{ chainId: "0x61" }],
+      //   });
+      // }
 
       window.ethereum.on("accountsChanged", function (accounts) {
         setUserAddress(accounts[0]);
@@ -71,7 +78,7 @@ export default function App() {
         rpc: {
           //   56: "https://bsc-dataseed.binance.org/",
 
-          97: "https://speedy-nodes-nyc.moralis.io/1d19a6082204e3ecd8dcf0b9/bsc/testnet",
+          97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
         },
         network: "binance testnet",
         chainId: 97,
@@ -95,7 +102,7 @@ export default function App() {
         rpc: {
           //   56: "https://bsc-dataseed.binance.org/",
 
-          97: "https://speedy-nodes-nyc.moralis.io/1d19a6082204e3ecd8dcf0b9/bsc/testnet",
+          97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
         },
         network: "binance testnet",
         chainId: 97,
@@ -195,7 +202,6 @@ export default function App() {
       />
       <main className="main">
         <Routes>
-          {/* <Route path="/" element={<Bridge />} /> */}
           <Route
             path="/"
             element={
@@ -204,6 +210,12 @@ export default function App() {
                 marketNFTs={marketNFTs}
                 stats={stats}
               />
+            }
+          />
+          <Route
+            path="/bridge"
+            element={
+              <Bridge selectedChain={selectedChain} userAddress={userAddress} />
             }
           />
           <Route

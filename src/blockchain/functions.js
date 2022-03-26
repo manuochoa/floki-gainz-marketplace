@@ -5,7 +5,7 @@ import Metadata from "./newMeta.json";
 import axios from "axios";
 
 let provider = new ethers.providers.JsonRpcProvider(
-  "https://speedy-nodes-nyc.moralis.io/1d19a6082204e3ecd8dcf0b9/bsc/testnet"
+  "https://data-seed-prebsc-1-s1.binance.org:8545/"
 );
 let marketAddress = "0x85D1e8E84d86176c8cc96863eD1a7259f81a9674";
 let NFTAddress = "0xB85BA6FA7deC1CE04b26AD6963F82a8633e0F179";
@@ -237,7 +237,7 @@ const marketContractInstance = async (walletType) => {
   if (walletType === "WALLET_CONNECT") {
     let newProvider = new WalletConnectProvider({
       rpc: {
-        97: "https://speedy-nodes-nyc.moralis.io/1d19a6082204e3ecd8dcf0b9/bsc/testnet",
+        97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
       },
     });
 
@@ -274,7 +274,7 @@ const nftContractInstance = async (walletType) => {
   if (walletType === "WALLET_CONNECT") {
     let newProvider = new WalletConnectProvider({
       rpc: {
-        97: "https://speedy-nodes-nyc.moralis.io/1d19a6082204e3ecd8dcf0b9/bsc/testnet",
+        97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
       },
     });
 

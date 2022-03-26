@@ -34,6 +34,14 @@ export default function Menu({ className }) {
           Collection
         </Link>
       </li>
+      <li className="menu__item">
+        <Link
+          to="/bridge"
+          className={"menu__link" + (checkUrl("/bridge") ? " active" : "")}
+        >
+          Bridge
+        </Link>
+      </li>
     </ul>
   );
 }

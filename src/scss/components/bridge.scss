@@ -1,291 +1,291 @@
 /*-------- Bridge --------*/
 
 .bridge {
-    max-width: 960px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 42px;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 42px;
 
-    padding: 6px;
+  padding: 6px;
 
-    background: $yellow;
+  background: $yellow;
+  border: 2px solid $black;
+  border-radius: 32px;
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    padding: 32px 92px 62px 92px;
+    background: $beige;
     border: 2px solid $black;
-    border-radius: 32px;
+    border-radius: 26px;
+  }
 
-    &__wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+  &__label {
+    display: block;
+    margin-bottom: 10px;
 
-        padding: 32px 92px 62px 92px;
-        background: $beige;
-        border: 2px solid $black;
-        border-radius: 26px;
-    }
+    font-family: $font-sb;
+    font-size: 18px;
+  }
 
-    &__label {
-        display: block;
-        margin-bottom: 10px;
+  &__row {
+    display: flex;
+    justify-content: space-between;
+  }
 
-        font-family: $font-sb;
-        font-size: 18px;
-    }
+  &__item {
+    width: 100%;
+  }
 
-    &__row {
-        display: flex;
-        justify-content: space-between;
-    }
+  &__item:not(:first-child) {
+    margin-top: 28px;
+  }
 
-    &__item {
-        width: 100%;
-    }
+  &__item--50 {
+    width: 48.5%;
+  }
 
-    &__item:not(:first-child) {
-        margin-top: 28px;
-    }
+  &__swap {
+    position: absolute;
+    left: calc(100% - 8px);
+    top: 50%;
 
-    &__item--50 {
-        width: 48.5%;
-    }
+    color: $black;
 
-    &__swap {
-        position: absolute;
-        left: calc(100% - 8px);
-        top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
 
-        color: $black;
+    transition: color 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
 
-        transform: translateY(-50%);
-        z-index: 2;
+  &__swap:hover {
+    color: $blue;
+  }
 
-        transition: color 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
+  &__amounts {
+    display: flex;
+    justify-content: space-between;
 
-    &__swap:hover {
-        color: $blue;
-    }
+    width: 63%;
+    padding-left: 12px;
+  }
 
-    &__amounts {
-        display: flex;
-        justify-content: space-between;
+  &__amount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        width: 63%;
-        padding-left: 12px;
-    }
+    width: calc(25% - 8px);
 
-    &__amount {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    background: #ffffff;
+    border: 2px solid $black;
+    border-radius: 16px;
 
-        width: calc(25% - 8px);
+    font-family: $font-sb;
+    font-size: 20px;
 
-        background: #FFFFFF;
-        border: 2px solid $black;
-        border-radius: 16px;
+    transition: background-color 0.2s cubic-bezier(0.19, 1, 0.22, 1),
+      color 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+  }
 
-        font-family: $font-sb;
-        font-size: 20px;
+  &__amount:nth-child(1) {
+    color: $green;
+  }
 
-        transition: background-color 0.2s cubic-bezier(0.19, 1, 0.22, 1), color 0.2s cubic-bezier(0.19, 1, 0.22, 1);
-    }
+  &__amount:nth-child(2) {
+    color: $blue;
+  }
 
-    &__amount:nth-child(1) {
-        color: $green;
-    }
+  &__amount:nth-child(3) {
+    color: $red;
+  }
 
-    &__amount:nth-child(2) {
-        color: $blue;
-    }
+  &__amount:nth-child(4) {
+    color: $orange;
+  }
 
-    &__amount:nth-child(3) {
-        color: $red;
-    }
+  &__amount:hover,
+  &__amount.active {
+    background-color: $orange;
+    color: $black;
+  }
 
-    &__amount:nth-child(4) {
-        color: $orange;
-    }
+  &__input-wrapper {
+    width: 37%;
+  }
 
-    &__amount:hover, &__amount.active {
-        background-color: $orange;
-        color: $black;
-    }
+  &__chain {
+    position: relative;
+  }
 
-    &__input-wrapper {
-        width: 37%;
-    }
+  &__chain-button {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
-    &__chain {
-        position: relative;
-    }
+    width: 100%;
+    padding: 20px;
 
-    &__chain-button {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        
-        width: 100%;
-        padding: 20px;
+    background: #ffffff;
+    border: 2px solid $black;
+    border-radius: 16px;
 
-        background: #FFFFFF;
-        border: 2px solid $black;
-        border-radius: 16px;
+    color: $black;
 
-        color: $black;
+    text-align: left;
+  }
 
-        text-align: left;
-    }
+  &__chain-code {
+    padding: 8px 16px;
+    font-size: 16px;
 
-    &__chain-code {
-        padding: 8px 16px;
-        font-size: 16px;
+    background: #f4f5f9;
+    border-radius: 6px;
 
-        background: #F4F5F9;
-        border-radius: 6px;
+    font-family: $font-sb;
+    font-size: 16px;
+  }
 
-        font-family: $font-sb;
-        font-size: 16px;
-    }
+  &__chain-title {
+    width: 100%;
+    margin-top: 22px;
 
-    &__chain-title {
-        width: 100%;
-        margin-top: 22px;
+    font-family: $font-b;
+    font-size: 20px;
+  }
 
-        font-family: $font-b;
-        font-size: 20px;
-    }
+  &__button {
+    width: 48.5%;
+    margin-top: 32px;
+  }
 
-    &__button {
-        width: 48.5%;
-        margin-top: 32px;
-    }
+  &__button:disabled {
+    opacity: 0.5;
+  }
 }
 
 @media (max-width: 989px) {
-
-    .bridge {
-        
-        &__wrapper {
-            padding: 32px 60px 62px 60px;
-        }
+  .bridge {
+    &__wrapper {
+      padding: 32px 60px 62px 60px;
     }
+  }
 }
 
 @media (max-width: 767px) {
+  .bridge {
+    margin-top: 35px;
 
-    .bridge {
-        margin-top: 35px;
-
-        &__wrapper {
-            padding: 30px;
-        }
-
-        &__label {
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-
-        &__amounts {
-            padding-left: 8px;
-        }
-
-        &__amount {
-            width: calc(25% - 4px);
-            font-size: 16px;
-            border-radius: 12px;
-        }
-
-        &__item:not(:first-child) {
-            margin-top: 22px;
-        }
-
-        &__item--50 {
-            width: 100%;
-        }
-
-        &__swap {
-            left: unset;
-            right: 0;
-            top: calc(100% + 1px);
-            transform: rotateZ(90deg);
-        }
-
-        &__chain-button {
-            padding: 12px;
-            border-radius: 12px;
-        }
-
-        &__button {
-            margin-top: 24px;
-        }
+    &__wrapper {
+      padding: 30px;
     }
+
+    &__label {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    &__amounts {
+      padding-left: 8px;
+    }
+
+    &__amount {
+      width: calc(25% - 4px);
+      font-size: 16px;
+      border-radius: 12px;
+    }
+
+    &__item:not(:first-child) {
+      margin-top: 22px;
+    }
+
+    &__item--50 {
+      width: 100%;
+    }
+
+    &__swap {
+      left: unset;
+      right: 0;
+      top: calc(100% + 1px);
+      transform: rotateZ(90deg);
+    }
+
+    &__chain-button {
+      padding: 12px;
+      border-radius: 12px;
+    }
+
+    &__button {
+      margin-top: 24px;
+    }
+  }
 }
 
 @media (max-width: 619px) {
+  .bridge {
+    padding: 4px;
+    border-radius: 26px;
 
-    .bridge {
-        padding: 4px;
-        border-radius: 26px;
-
-        &__wrapper {
-            border-radius: 20px;
-        }
-
-        &__button {
-            height: 48px;
-            padding: 0 16px;
-            font-size: 14px;
-        }
-
-        &__chain-icon {
-            width: 24px;
-            height: 24px;
-        }
-
-        &__chain-code {
-            padding: 5px 12px;
-            font-size: 14px;
-        }
-
-        &__chain-title {
-            margin-top: 14px;
-            font-size: 16px;
-        }
+    &__wrapper {
+      border-radius: 20px;
     }
+
+    &__button {
+      height: 48px;
+      padding: 0 16px;
+      font-size: 14px;
+    }
+
+    &__chain-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    &__chain-code {
+      padding: 5px 12px;
+      font-size: 14px;
+    }
+
+    &__chain-title {
+      margin-top: 14px;
+      font-size: 16px;
+    }
+  }
 }
 
 @media (max-width: 479px) {
-
-    .bridge {
-
-        &__wrapper {
-            padding: 24px 16px 32px 16px;
-        }
-
-        &__row--action {
-            flex-direction: column;
-        }
-
-        &__input-wrapper {
-            width: 100%;
-        }
-
-        &__amounts {
-            width: 100%;
-            margin-top: 12px;
-            padding-left: 0;
-        }
-
-        &__amount {
-            height: 52px;
-        }
-
-        &__button {
-            width: 100%;
-        }
-
-        &__button:last-child {
-            margin-top: 12px;
-        }
+  .bridge {
+    &__wrapper {
+      padding: 24px 16px 32px 16px;
     }
+
+    &__row--action {
+      flex-direction: column;
+    }
+
+    &__input-wrapper {
+      width: 100%;
+    }
+
+    &__amounts {
+      width: 100%;
+      margin-top: 12px;
+      padding-left: 0;
+    }
+
+    &__amount {
+      height: 52px;
+    }
+
+    &__button {
+      width: 100%;
+    }
+
+    &__button:last-child {
+      margin-top: 12px;
+    }
+  }
 }
