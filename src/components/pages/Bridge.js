@@ -14,6 +14,7 @@ import {
   fundSendToDestinationGas,
   approve,
 } from "../../blockchain/bridgeFunctions";
+import { ethers } from "ethers";
 
 const assetsInitialState = [
   { title: "$GAINZ", icon: gainz, selected: true, id: 0 },
@@ -121,6 +122,18 @@ export default function Bridge({ connectWallet, userAddress, selectedChain }) {
     setIsLoading(false);
   };
 
+  const getPerc = (perc) => {
+    let balance = userData.balance;
+    let result = (balance * perc) / 100;
+    console.log(result / 10 ** 6);
+
+    return truncateByDecimalPlace(result / 10 ** 6, 4);
+  };
+
+  const truncateByDecimalPlace = (value, numDecimalPlaces) =>
+    Math.trunc(value * Math.pow(10, numDecimalPlaces)) /
+    Math.pow(10, numDecimalPlaces);
+
   useEffect(() => {
     fetchInfo();
 
@@ -189,10 +202,50 @@ export default function Bridge({ connectWallet, userAddress, selectedChain }) {
                   displayType="input"
                 />
                 <div className="bridge__amounts">
-                  <button className="bridge__amount">25%</button>
-                  <button className="bridge__amount">50%</button>
-                  <button className="bridge__amount">75%</button>
-                  <button className="bridge__amount">MAX</button>
+                  <button
+                    onClick={(e) =>
+                      setBridgeState({
+                        ...bridgeState,
+                        quantity: getPerc(25),
+                      })
+                    }
+                    className="bridge__amount"
+                  >
+                    25%
+                  </button>
+                  <button
+                    onClick={(e) =>
+                      setBridgeState({
+                        ...bridgeState,
+                        quantity: getPerc(50),
+                      })
+                    }
+                    className="bridge__amount"
+                  >
+                    50%
+                  </button>
+                  <button
+                    onClick={(e) =>
+                      setBridgeState({
+                        ...bridgeState,
+                        quantity: getPerc(75),
+                      })
+                    }
+                    className="bridge__amount"
+                  >
+                    75%
+                  </button>
+                  <button
+                    onClick={(e) =>
+                      setBridgeState({
+                        ...bridgeState,
+                        quantity: getPerc(100),
+                      })
+                    }
+                    className="bridge__amount"
+                  >
+                    MAX
+                  </button>
                 </div>
               </div>
             </div>

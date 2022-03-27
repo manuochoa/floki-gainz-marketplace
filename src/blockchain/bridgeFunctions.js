@@ -114,7 +114,11 @@ export const receiveTokensFromSource = async (
   try {
     let newInstance = await newContractInstance(walletType, walletProvider);
 
-    let amount = ethers.utils.parseUnits(_amount, 6);
+    console.log(_amount);
+
+    let amount = ethers.utils.parseUnits(Number(_amount).toString(), 6);
+
+    console.log(amount.toString());
 
     let tx = await newInstance.receiveTokensFromSource(amount, {
       gasLimit: 1000000,
