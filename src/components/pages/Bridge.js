@@ -107,8 +107,10 @@ export default function Bridge({ connectWallet, userAddress, selectedChain }) {
   const fetchInfo = async () => {
     if (userAddress) {
       let result = await getUserInfo(userAddress);
-      setUserData(result[selectedChain]);
-      console.log(result[selectedChain]);
+      if (selectedChain === 4 || selectedChain === 97) {
+        setUserData(result[selectedChain]);
+        console.log(result[selectedChain]);
+      }
     }
   };
 
