@@ -22,7 +22,7 @@ const assetsInitialState = [
   //   { title: "$GAINZ 4", icon: gainz, selected: false, id: 4 },
 ];
 
-export default function Bridge({ userAddress, selectedChain }) {
+export default function Bridge({ connectWallet, userAddress, selectedChain }) {
   const [isLoading, setIsLoading] = useState(false);
   const [bridgeState, setBridgeState] = useState({
     assets: assetsInitialState,
@@ -237,7 +237,13 @@ export default function Bridge({ userAddress, selectedChain }) {
             </div>
             <button
               disabled={isLoading}
-              onClick={userData.allowance ? initSwap : handleApproval}
+              onClick={
+                !userAddress
+                  ? connectWallet
+                  : userData.allowance
+                  ? initSwap
+                  : handleApproval
+              }
               className="bridge__button button button--beige"
             >
               {userData.allowance ? "Init Swap" : "Approve Token"}

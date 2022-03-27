@@ -215,7 +215,11 @@ export default function App() {
           <Route
             path="/bridge"
             element={
-              <Bridge selectedChain={selectedChain} userAddress={userAddress} />
+              <Bridge
+                connectWallet={connectWallet}
+                selectedChain={selectedChain}
+                userAddress={userAddress}
+              />
             }
           />
           <Route
