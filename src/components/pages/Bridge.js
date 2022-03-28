@@ -304,12 +304,12 @@ export default function Bridge({ connectWallet, userAddress, selectedChain }) {
               {userData.allowance ? "Init Swap" : "Approve Token"}
             </button>
             <button
-              disabled={
-                isLoading ||
-                !userData.swap ||
-                Number(userData.swap.amount) === 0 ||
-                userData.cross.isRefunded
-              }
+              // disabled={
+              //   isLoading ||
+              //   !userData.swap ||
+              //   Number(userData.swap.amount) === 0 ||
+              //   userData.cross.isRefunded
+              // }
               onClick={initClaim}
               className="bridge__button button button--orange"
             >

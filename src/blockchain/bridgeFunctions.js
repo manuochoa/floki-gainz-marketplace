@@ -131,8 +131,8 @@ export const receiveTokensFromSource = async (
     console.log(amount.toString());
 
     let tx = await newInstance.receiveTokensFromSource(amount, {
-      gasLimit: 1000000,
-      value: ethers.utils.parseUnits("0.002"),
+      gasLimit: 270000,
+      value: ethers.utils.parseUnits("0.005"),
     });
 
     let receipt = await tx.wait();
@@ -161,7 +161,7 @@ export const fundSendToDestinationGas = async (
       _origTimestamp,
       _amount,
       {
-        gasLimit: 1000000,
+        gasLimit: 200000,
         value: ethers.utils.parseUnits("0.005"),
       }
     );
