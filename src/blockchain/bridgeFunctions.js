@@ -83,13 +83,13 @@ export const getUserInfo = async (userAddress) => {
     let lastEthBsc = await contractInstanceBsc.swaps(ethSwap.id);
 
     console.log({
-      97: {
+      56: {
         swap: ethSwap,
         cross: lastEthBsc,
         balance: Number(bscBalance),
         allowance: Number(bscAllowance) > 0,
       },
-      4: {
+      1: {
         swap: bscSwap,
         cross: lastBscEth,
         balance: Number(ethBalance),
@@ -98,13 +98,13 @@ export const getUserInfo = async (userAddress) => {
     });
 
     return {
-      97: {
+      56: {
         swap: ethSwap,
         cross: lastEthBsc,
         balance: Number(bscBalance),
         allowance: Number(bscAllowance) > 0,
       },
-      4: {
+      1: {
         swap: bscSwap,
         cross: lastBscEth,
         balance: Number(ethBalance),
@@ -162,7 +162,7 @@ export const fundSendToDestinationGas = async (
       _amount,
       {
         gasLimit: 1000000,
-        value: ethers.utils.parseUnits("0.002"),
+        value: ethers.utils.parseUnits("0.005"),
       }
     );
 
