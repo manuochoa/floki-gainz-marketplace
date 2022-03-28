@@ -65,17 +65,17 @@ export default function Bridge({ connectWallet, userAddress, selectedChain }) {
       method: "eth_chainId",
     });
     if (chains.tokenIn.code === "BEP20") {
-      if (chainId !== "0x61") {
+      if (chainId !== "0x38") {
         await window.ethereum.request({
           method: "wallet_switchEthereumChain",
-          params: [{ chainId: "0x61" }],
+          params: [{ chainId: "0x38" }],
         });
       }
     } else {
-      if (chainId !== "0x4") {
+      if (chainId !== "0x1") {
         await window.ethereum.request({
           method: "wallet_switchEthereumChain",
-          params: [{ chainId: "0x4" }],
+          params: [{ chainId: "0x1" }],
         });
       }
     }
@@ -107,7 +107,7 @@ export default function Bridge({ connectWallet, userAddress, selectedChain }) {
   const fetchInfo = async () => {
     if (userAddress) {
       let result = await getUserInfo(userAddress);
-      if (selectedChain === 4 || selectedChain === 97) {
+      if (selectedChain === 1 || selectedChain === 56) {
         setUserData(result[selectedChain]);
         console.log(result[selectedChain]);
       }
@@ -139,7 +139,7 @@ export default function Bridge({ connectWallet, userAddress, selectedChain }) {
   useEffect(() => {
     fetchInfo();
 
-    if (selectedChain === 4) {
+    if (selectedChain === 1) {
       setChains({
         tokenIn: {
           icon: bsc,
@@ -152,7 +152,7 @@ export default function Bridge({ connectWallet, userAddress, selectedChain }) {
           title: "Ethereum Chain Network",
         },
       });
-    } else if (selectedChain === 94) {
+    } else if (selectedChain === 56) {
       setChains({
         tokenOut: {
           icon: bsc,
