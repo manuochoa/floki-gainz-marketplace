@@ -5,10 +5,10 @@ import Metadata from "./newMeta.json";
 import axios from "axios";
 
 let provider = new ethers.providers.JsonRpcProvider(
-  "https://data-seed-prebsc-1-s1.binance.org:8545/"
+  "https://bsc-dataseed1.ninicoin.io/"
 );
-let marketAddress = "0x85D1e8E84d86176c8cc96863eD1a7259f81a9674";
-let NFTAddress = "0xB85BA6FA7deC1CE04b26AD6963F82a8633e0F179";
+let marketAddress = "0xF1e945eF6B918eA3741C2309Ac9475edC1e03Af5";
+let NFTAddress = "0x5F5C8AbD50051e4F8d8325368c79A754F9E9bbC8";
 let marketContract = new ethers.Contract(marketAddress, marketAbi, provider);
 let NFTcontract = new ethers.Contract(NFTAddress, NFTabi, provider);
 
@@ -237,7 +237,7 @@ const marketContractInstance = async (walletType) => {
   if (walletType === "WALLET_CONNECT") {
     let newProvider = new WalletConnectProvider({
       rpc: {
-        97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
+        56: "https://bsc-dataseed1.ninicoin.io/",
       },
     });
 
@@ -274,7 +274,7 @@ const nftContractInstance = async (walletType) => {
   if (walletType === "WALLET_CONNECT") {
     let newProvider = new WalletConnectProvider({
       rpc: {
-        97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
+        56: "https://bsc-dataseed1.ninicoin.io/",
       },
     });
 

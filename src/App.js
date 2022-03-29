@@ -76,12 +76,12 @@ export default function App() {
       console.log("hola");
       const provider = new WalletConnectProvider({
         rpc: {
-          //   56: "https://bsc-dataseed.binance.org/",
+          56: "https://bsc-dataseed.binance.org/",
 
-          97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
+          // 97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
         },
-        network: "binance testnet",
-        chainId: 97,
+        // network: "binance testnet",
+        chainId: 56,
         infuraId: null,
       });
 
@@ -100,12 +100,12 @@ export default function App() {
     if (walletType === "WALLET_CONNECT") {
       const provider = new WalletConnectProvider({
         rpc: {
-          //   56: "https://bsc-dataseed.binance.org/",
+          56: "https://bsc-dataseed.binance.org/",
 
-          97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
+          // 97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
         },
-        network: "binance testnet",
-        chainId: 97,
+        // network: "binance testnet",
+        chainId: 56,
         infuraId: null,
       });
       await provider.disconnect();

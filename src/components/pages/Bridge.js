@@ -107,7 +107,7 @@ export default function Bridge({ connectWallet, userAddress, selectedChain }) {
   const fetchInfo = async () => {
     if (userAddress) {
       let result = await getUserInfo(userAddress);
-      if (selectedChain === 1 || selectedChain === 56) {
+      if (selectedChain === 4 || selectedChain === 97) {
         setUserData(result[selectedChain]);
         console.log(result[selectedChain]);
       }
@@ -139,7 +139,7 @@ export default function Bridge({ connectWallet, userAddress, selectedChain }) {
   useEffect(() => {
     fetchInfo();
 
-    if (selectedChain === 1) {
+    if (selectedChain === 4) {
       setChains({
         tokenIn: {
           icon: bsc,
@@ -152,7 +152,7 @@ export default function Bridge({ connectWallet, userAddress, selectedChain }) {
           title: "Ethereum Chain Network",
         },
       });
-    } else if (selectedChain === 56) {
+    } else if (selectedChain === 97) {
       setChains({
         tokenOut: {
           icon: bsc,
@@ -304,12 +304,12 @@ export default function Bridge({ connectWallet, userAddress, selectedChain }) {
               {userData.allowance ? "Init Swap" : "Approve Token"}
             </button>
             <button
-              // disabled={
-              //   isLoading ||
-              //   !userData.swap ||
-              //   Number(userData.swap.amount) === 0 ||
-              //   userData.cross.isRefunded
-              // }
+              disabled={
+                isLoading ||
+                !userData.swap ||
+                Number(userData.swap.amount) === 0 ||
+                userData.cross.isRefunded
+              }
               onClick={initClaim}
               className="bridge__button button button--orange"
             >

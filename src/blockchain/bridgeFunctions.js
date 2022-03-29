@@ -9,17 +9,26 @@ let tokenAbi = [
 ];
 
 let bscProvider = new ethers.providers.JsonRpcProvider(
-  "https://bsc-dataseed1.ninicoin.io/"
+  "https://data-seed-prebsc-1-s1.binance.org:8545/"
+  // "https://bsc-dataseed1.ninicoin.io/"
 );
 
 let ethProvider = new ethers.providers.JsonRpcProvider(
-  "https://mainnet.infura.io/v3/0267a87b8abb49379bf3a5b7c8e2f4d7"
+  "https://rinkeby.infura.io/v3/a8ed213665484d9eba057b5ee327f8e0"
+  // "https://mainnet.infura.io/v3/0267a87b8abb49379bf3a5b7c8e2f4d7"
 );
 
-const flokiBSC = "0xB6a41C1fAcC08aADe9257b068041c9B3420693f3";
-const flokiETH = "0x9f216B10dEC75A64877eb825f0999756fD761A5d";
-const bridgeBSC = "0xcA2A654D7D76235E8f9200B9ff8930DBd889675d";
-const bridgeETH = "0xF67a2886d92FC0E51885B04879D0396E3178cF40";
+// MAINNET
+// const flokiBSC = "0xB6a41C1fAcC08aADe9257b068041c9B3420693f3";
+// const flokiETH = "0x9f216B10dEC75A64877eb825f0999756fD761A5d";
+// const bridgeBSC = "0xcA2A654D7D76235E8f9200B9ff8930DBd889675d";
+// const bridgeETH = "0xF67a2886d92FC0E51885B04879D0396E3178cF40";
+
+// TESTNET
+const flokiBSC = "0x8460F2ac333C289aD969596B5eD67CA3040bA186";
+const flokiETH = "0x4324FcaC18d712EDB23BE10449797574Ac4fA5c2";
+const bridgeBSC = "0x5DB795F7D6D3919B00Ce0Fa948B5b9CDB1C8600e";
+const bridgeETH = "0x96966D8fB1A9bF27Aa877aA85c837D2c66CE4ccb";
 
 let networks = {
   1: {
@@ -98,13 +107,13 @@ export const getUserInfo = async (userAddress) => {
     });
 
     return {
-      56: {
+      97: {
         swap: ethSwap,
         cross: lastEthBsc,
         balance: Number(bscBalance),
         allowance: Number(bscAllowance) > 0,
       },
-      1: {
+      4: {
         swap: bscSwap,
         cross: lastBscEth,
         balance: Number(ethBalance),
